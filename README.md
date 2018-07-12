@@ -13,7 +13,7 @@ Install via pip
 
 This package is not yet on pypi manual global install is as follows:
 
-    pip install git+https://github.com/kyuni22/pybbg 
+    pip install git+https://github.com/FrontlightCapitalLP/pybbg
 
 Functions available
 =====
