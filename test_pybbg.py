@@ -38,7 +38,12 @@ class TestPybbg(unittest.TestCase):
     def test_bdh_single_field_single_security(self):
         tester = pybbg.Pybbg()
         data = tester.bdh('AMZN US Equity', 'PX_LAST', datetime.datetime.today() + datetime.timedelta(days=-10), datetime.datetime.today())
-        print(data) 
+        print(data)
+
+    def test_bdh_single_field_single_security_with_no_data(self):
+        tester = pybbg.Pybbg()
+        data = tester.bdh('LW US Equity', 'PX_LAST', datetime.date(2007,10,12), datetime.date(2009,3,9))
+        print(data)
 
     def test_bdp_bad_sec(self):
         tester = pybbg.Pybbg()
