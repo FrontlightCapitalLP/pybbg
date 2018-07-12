@@ -237,54 +237,6 @@ class Pybbg():
 
         return pd.DataFrame.from_dict(data)
 
-    # def bdp(self, ticker, fld_list):
-
-    #     self.service_refData()
-
-    #     request = self.refDataService.createRequest("ReferenceDataRequest")
-    #     if isstring(ticker):
-    #         ticker = [ ticker ]
-
-    #     securities = request.getElement("securities")
-    #     for t in ticker:
-    #         securities.appendValue(t)
-
-    #     if isstring(fld_list):
-    #         fld_list = [ fld_list ]
-
-    #     fields = request.getElement("fields")
-    #     for f in fld_list:
-    #         fields.appendValue(f)
-
-
-    #     self.session.sendRequest(request)
-    #     data = dict()
-
-    #     while(True):
-    #         # We provide timeout to give the chance for Ctrl+C handling:
-    #         ev = self.session.nextEvent(500)
-    #         for msg in ev:
-    #             securityData = msg.getElement("securityData")
-
-    #             for i in range(securityData.numValues()):
-    #                 fieldData = securityData.getValue(i).getElement("fieldData")
-    #                 secId = securityData.getValue(i).getElement("security").getValue()
-    #                 data[secId] = dict()
-    #                 for field in fld_list:
-    #                     if fieldData.hasElement(field):
-    #                         data[secId][field] = fieldData.getElement(field).getValue()
-    #                     else:
-    #                         data[secId][field] = np.NaN
-
-
-
-    #         if ev.eventType() == blpapi.Event.RESPONSE:
-    #             # Response completly received, so we could exit
-    #             break
-
-    #     return pd.DataFrame.from_dict(data)
-
-
     def bds(self, security, field, overrides=None):
 
         self.service_refData()
