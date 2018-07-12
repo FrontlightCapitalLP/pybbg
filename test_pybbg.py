@@ -45,6 +45,11 @@ class TestPybbg(unittest.TestCase):
         data = tester.bdh('LW US Equity', 'PX_LAST', datetime.date(2007,10,12), datetime.date(2009,3,9))
         print(data)
 
+    def test_bdh_single_field_single_security_with_some_data(self):
+        tester = pybbg.Pybbg()
+        data = tester.bdh(['LW US Equity','AAPL US Equity'], 'PX_LAST', datetime.date(2007,10,12), datetime.date(2009,3,9))
+        print(data)
+
     def test_bdp_bad_sec(self):
         tester = pybbg.Pybbg()
         data = tester.bdp('260555 Equity', ['TICKER_AND_EXCH_CODE'])
