@@ -10,5 +10,5 @@ setup(name='pybbg',
       author_email='kyuni22@gmail.com',
       license='MIT',
       packages=['pybbg'],
-      requires=['dateutil', 'six'],
+      requires=['python-dateutil', 'six'],
       zip_safe=False)
