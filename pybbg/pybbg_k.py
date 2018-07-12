@@ -131,19 +131,23 @@ class Pybbg():
                 # Response completly received, so we could exit
                 break
 
-        if len(fld_list) == 1:
-            data = {k[0]: v for k, v in data.items()}
-            data = DataFrame(data)
-            data = data[ticker_list]
-            data.index = pd.to_datetime(data.index)
-            return data
-
         if len(data) == 0:
             # security error case
             return DataFrame()
 
+        if len(fld_list) == 1:
+            data = {k[0]: v for k, v in data.items()}
+            data = DataFrame(data)
+            data.index = pd.to_datetime(data.index)
+            return data
+
+
         data = DataFrame(data)
-        data = data[ticker_list]
+
+        # fix column order
+        new_col_order = [t for t in ticker_list if t in data.columns]
+        data = data[new_col_order]
+
         data.columns = pd.MultiIndex.from_tuples(data, names=['ticker', 'field'])
         data.index = pd.to_datetime(data.index)
         return data

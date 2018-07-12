@@ -2,7 +2,8 @@
 
 from setuptools import setup
 
-setup(name='pybbg',
+setup(
+      name='pybbg',
       version='1.1.0',
       description='Bloomberg Open API with pandas',
       url='https://github.com/kyuni22/pybbg',
@@ -10,5 +11,6 @@ setup(name='pybbg',
       author_email='kyuni22@gmail.com',
       license='MIT',
       packages=['pybbg'],
-      requires=['python-dateutil', 'six'],
-      zip_safe=False)
+      requires=['six'],
+      zip_safe=False
+)
