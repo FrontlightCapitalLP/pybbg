@@ -4,6 +4,13 @@ import datetime
 from dateutil.relativedelta import relativedelta
 
 class TestPybbg(unittest.TestCase):
+
+    def test_bql(self):
+        tester = pybbg.Pybbg()
+        data = tester.bql(['AMZN US Equity', 'IBM US Equity'], ['PX_LAST', 'PX_BID', 'PX_ASK'], datetime.datetime.today() + datetime.timedelta(days=-10), datetime.datetime.today())
+        print(data)
+        print(data.dtypes)
+
     def test_bdp(self):
         tester = pybbg.Pybbg()
         data = tester.bdp(['AMZN US Equity', 'IBM US Equity'], ['PX_LAST', 'PX_BID', 'PX_ASK'])
